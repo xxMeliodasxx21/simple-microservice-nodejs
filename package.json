@@ -1,0 +1,15 @@
+{
+  "name": "simple-microservice-nodejs",
+  "version": "1.0.0",
+  "description": "Microservicio de ejemplo: Express con /hello y /health",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

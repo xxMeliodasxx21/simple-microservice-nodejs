@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: simple-microservice-nodejs
+    env: node
+    plan: free
+    repo: https://github.com/<YOUR_USER>/simple-microservice-nodejs
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: "10000"
