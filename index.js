@@ -1,13 +1,20 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok', time: new Date().toISOString() });
+// Ruta raíz para que no salga "Cannot GET /"
+app.get("/", (req, res) => {
+  res.send("Microservicio funcionando 👍");
 });
 
-app.get('/hello', (req, res) => {
-  const name = req.query.name || 'mundo';
+// Ruta health
+app.get("/health", (req, res) => {
+  res.json({ status: "ok", time: new Date().toISOString() });
+});
+
+// Ruta hello opcional
+app.get("/hello", (req, res) => {
+  const name = req.query.name || "mundo";
   res.json({ message: `Hola, ${name}!`, uptime: process.uptime() });
 });
 
