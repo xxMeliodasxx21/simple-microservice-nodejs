@@ -3,7 +3,9 @@ const path = require('path');
 const multer = require('multer');
 
 const app = express();
-const port = 3000;
+
+// Puerto compatible con Render
+const port = process.env.PORT || 3000;
 
 // Para que Express lea formularios
 app.use(express.urlencoded({ extended: true }));
@@ -67,5 +69,5 @@ app.get('/proyecto', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log("Servidor listo en http://localhost:" + port);
+  console.log("Servidor corriendo en el puerto " + port);
 });
