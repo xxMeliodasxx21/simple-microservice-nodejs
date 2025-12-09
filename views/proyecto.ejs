@@ -1,14 +1,10 @@
-<h1>Subir PDF</h1>
-
-<form action="/subir-pdf" method="POST" enctype="multipart/form-data">
-  <input type="file" name="pdf" accept="application/pdf" required>
-  <button type="submit">Subir</button>
-</form>
-
-<% if (nombrePDF) { %>
-  <h2>PDF subido:</h2>
-  <a href="/pdf/<%= nombrePDF %>" target="_blank">Abrir PDF</a>
-<% } %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
 <body>
     <div class="container">
         <h1>Proyecto Subido</h1>
@@ -19,3 +15,4 @@
         <% } %>
     </div>
 </body>
+</html>

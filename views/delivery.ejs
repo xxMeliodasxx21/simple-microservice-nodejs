@@ -8,12 +8,15 @@
 <body>
     <div class="container">
         <h1>Menú Delivery</h1>
-        <ul>
+        <ul class="menu">
             <% menu.forEach(item => { %>
                 <li>
-                    <img src="<%= item.img %>" alt="<%= item.name %>" width="50">
-                    <span><%= item.name %> - $<%= item.price %></span>
-                    <button onclick="addToCart(<%= item.id %>, '<%= item.name %>', <%= item.price %>)">Agregar</button>
+                    <img src="<%= item.img %>" alt="<%= item.name %>" width="80">
+                    <div>
+                        <h3><%= item.name %></h3>
+                        <p>$<%= item.price %></p>
+                        <button onclick="addToCart(<%= item.id %>, '<%= item.name %>', <%= item.price %>)">Agregar</button>
+                    </div>
                 </li>
             <% }) %>
         </ul>

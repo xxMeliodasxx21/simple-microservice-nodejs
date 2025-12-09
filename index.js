@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const multer = require('multer');
 const fs = require('fs');
 
 const app = express();
@@ -11,20 +10,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-// Carpeta para servir PDFs
-app.use('/pdf', express.static(path.join(__dirname, 'uploads')));
-
-// Configuración para subir PDFs
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, 'uploads'),
-  filename: (req, file, cb) => cb(null, Date.now() + '-' + file.originalname)
-});
-const upload = multer({ storage });
-
-// Guardamos temporalmente el nombre del PDF subido
-let nombrePDF = null;
+app.set('views', path.join(__dirname, 'views')));
 
 // -------------------- RUTAS PRINCIPALES --------------------
 
@@ -44,17 +30,7 @@ app.post('/login', (req, res) => {
 // Dashboard del profe
 app.get('/dashboard', (req, res) => res.render('dashboard'));
 
-// Subida del PDF
-app.post('/subir-pdf', upload.single('pdf'), (req, res) => {
-  if (!req.file) return res.send("No subiste ningún archivo.");
-  nombrePDF = req.file.filename;
-  res.redirect('/proyecto');
-});
-
-// Página del proyecto
-app.get('/proyecto', (req, res) => res.render('proyecto', { nombrePDF }));
-
-// -------------------- NUEVA PARTE: DELIVERY --------------------
+// -------------------- DELIVERY --------------------
 
 // Ruta de delivery
 app.get('/delivery', (req, res) => {
@@ -72,18 +48,12 @@ app.post('/delivery/order', (req, res) => {
   const ordersFile = path.join(__dirname, 'data', 'orders.json');
 
   // Asegurarse de que exista la carpeta y el archivo
-  if (!fs.existsSync(path.join(__dirname, 'data'))) {
-    fs.mkdirSync(path.join(__dirname, 'data'));
-  }
-  if (!fs.existsSync(ordersFile)) {
-    fs.writeFileSync(ordersFile, "[]");
-  }
+  if (!fs.existsSync(path.join(__dirname, 'data'))) fs.mkdirSync(path.join(__dirname, 'data'));
+  if (!fs.existsSync(ordersFile)) fs.writeFileSync(ordersFile, "[]");
 
-  // Leer los pedidos existentes
-  let orders = JSON.parse(fs.readFileSync(ordersFile));
-  // Agregar el nuevo pedido
+  // Leer los pedidos existentes y agregar el nuevo
+  const orders = JSON.parse(fs.readFileSync(ordersFile));
   orders.push(order);
-  // Guardar de nuevo en orders.json
   fs.writeFileSync(ordersFile, JSON.stringify(orders, null, 2));
 
   res.send('Pedido recibido! 🚀');
