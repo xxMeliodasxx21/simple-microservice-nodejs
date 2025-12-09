@@ -50,3 +50,97 @@ form input {
     width: 100%;
     box-sizing: border-box;
 }
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body y fondo */
+body {
+    background: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Contenedores centrados */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Títulos */
+h1, h2 {
+    color: #444;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Inputs y botones */
+input[type="text"], input[type="password"], input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #5c6bc0;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3949ab;
+}
+
+/* Listas */
+ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+li img {
+    margin-right: 10px;
+}
+
+/* Carrito */
+#cart {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.menu li {
+    display: flex;
+    align-items: center;
+    background: #e8eaf6;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.menu li div {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

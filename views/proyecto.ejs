@@ -9,3 +9,13 @@
   <h2>PDF subido:</h2>
   <a href="/pdf/<%= nombrePDF %>" target="_blank">Abrir PDF</a>
 <% } %>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form method="POST" action="/login">
+            <input type="text" name="user" placeholder="Usuario" required>
+            <input type="password" name="pass" placeholder="Contraseña" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>

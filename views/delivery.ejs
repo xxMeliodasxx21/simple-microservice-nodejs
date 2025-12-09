@@ -32,3 +32,25 @@
     <script src="/js/delivery.js"></script>
 </body>
 </html>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form method="POST" action="/login">
+            <input type="text" name="user" placeholder="Usuario" required>
+            <input type="password" name="pass" placeholder="Contraseña" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+<ul class="menu">
+    <% menu.forEach(item => { %>
+        <li>
+            <img src="<%= item.img %>" alt="<%= item.name %>" width="80">
+            <div>
+                <h3><%= item.name %></h3>
+                <p>$<%= item.price %></p>
+                <button onclick="addToCart(<%= item.id %>, '<%= item.name %>', <%= item.price %>)">Agregar</button>
+            </div>
+        </li>
+    <% }) %>
+</ul>
