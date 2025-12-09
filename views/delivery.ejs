@@ -34,3 +34,34 @@
     <script src="/js/delivery.js"></script>
 </body>
 </html>
+<body>
+    <div class="container">
+        <h1>Menú Delivery</h1>
+        <ul class="menu">
+            <% menu.forEach(item => { %>
+                <li>
+                    <img src="<%= item.img %>" alt="<%= item.name %>" width="80">
+                    <div>
+                        <h3><%= item.name %></h3>
+                        <p>$<%= item.price %></p>
+                        <button onclick="addToCart(<%= item.id %>, '<%= item.name %>', <%= item.price %>)">Agregar</button>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+
+        <h2>Carrito</h2>
+        <ul id="cart"></ul>
+        <p>Total: $<span id="total">0</span></p>
+
+        <h2>Tu información</h2>
+        <form id="orderForm">
+            <input type="text" name="customer" placeholder="Nombre" required>
+            <input type="text" name="address" placeholder="Dirección" required>
+            <input type="tel" name="phone" placeholder="Teléfono" required>
+            <button type="submit">Enviar pedido</button>
+        </form>
+    </div>
+
+    <script src="/js/delivery.js"></script>
+</body>

@@ -11,11 +11,11 @@
 <% } %>
 <body>
     <div class="container">
-        <h1>Login</h1>
-        <form method="POST" action="/login">
-            <input type="text" name="user" placeholder="Usuario" required>
-            <input type="password" name="pass" placeholder="Contraseña" required>
-            <button type="submit">Entrar</button>
-        </form>
+        <h1>Proyecto Subido</h1>
+        <% if (nombrePDF) { %>
+            <p>Archivo PDF: <a href="/pdf/<%= nombrePDF %>" target="_blank"><%= nombrePDF %></a></p>
+        <% } else { %>
+            <p>No hay PDF subido.</p>
+        <% } %>
     </div>
 </body>
