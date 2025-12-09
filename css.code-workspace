@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "../../Daniel/Pagina web/assets/css"
+		},
+		{
+			"path": "../../Daniel/Pagina web/assets/imag"
+		},
+		{
+			"path": "../../Daniel/Pagina web/assets/js"
+		},
+		{
+			"path": "../../Daniel/Pagina web/assets/php"
+		}
+	],
+	"extensions": {
+		"recommendations": [
+			"techer.open-in-browser"
+		]
+	},
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "css"
+	}
+}
