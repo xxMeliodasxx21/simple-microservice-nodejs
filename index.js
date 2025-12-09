@@ -26,6 +26,8 @@ const upload = multer({ storage });
 // Guardamos temporalmente el nombre del PDF subido
 let nombrePDF = null;
 
+// -------------------- RUTAS PRINCIPALES --------------------
+
 // Pantalla login
 app.get('/', (req, res) => res.render('login'));
 
@@ -69,9 +71,19 @@ app.post('/delivery/order', (req, res) => {
   const order = req.body;
   const ordersFile = path.join(__dirname, 'data', 'orders.json');
 
-  let orders = [];
-  if (fs.existsSync(ordersFile)) orders = JSON.parse(fs.readFileSync(ordersFile));
+  // Asegurarse de que exista la carpeta y el archivo
+  if (!fs.existsSync(path.join(__dirname, 'data'))) {
+    fs.mkdirSync(path.join(__dirname, 'data'));
+  }
+  if (!fs.existsSync(ordersFile)) {
+    fs.writeFileSync(ordersFile, "[]");
+  }
+
+  // Leer los pedidos existentes
+  let orders = JSON.parse(fs.readFileSync(ordersFile));
+  // Agregar el nuevo pedido
   orders.push(order);
+  // Guardar de nuevo en orders.json
   fs.writeFileSync(ordersFile, JSON.stringify(orders, null, 2));
 
   res.send('Pedido recibido! 🚀');
