@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Delivery</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- tu CSS existente -->
+</head>
+<body>
+    <h1>Menú Delivery</h1>
+    <ul>
+        <% menu.forEach(item => { %>
+            <li>
+                <img src="<%= item.img %>" alt="<%= item.name %>" width="50">
+                <span><%= item.name %> - $<%= item.price %></span>
+                <button onclick="addToCart(<%= item.id %>, '<%= item.name %>', <%= item.price %>)">Agregar</button>
+            </li>
+        <% }) %>
+    </ul>
+
+    <h2>Carrito</h2>
+    <ul id="cart"></ul>
+    <p>Total: $<span id="total">0</span></p>
+
+    <h2>Tu información</h2>
+    <form id="orderForm">
+        <input type="text" name="customer" placeholder="Nombre" required>
+        <input type="text" name="address" placeholder="Dirección" required>
+        <input type="tel" name="phone" placeholder="Teléfono" required>
+        <button type="submit">Enviar pedido</button>
+    </form>
+
+    <script src="/js/delivery.js"></script>
+</body>
+</html>
