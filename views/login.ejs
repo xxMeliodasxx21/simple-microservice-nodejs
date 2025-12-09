@@ -1,6 +1,18 @@
-<h2>Login del Profe</h2>
-<form action="/login" method="POST">
-  <input type="text" name="user" placeholder="Usuario">
-  <input type="password" name="pass" placeholder="Contraseña">
-  <button type="submit">Entrar</button>
-</form>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container login-container">
+        <h2>Login del Profe</h2>
+        <form action="/login" method="POST">
+            <input type="text" name="user" placeholder="Usuario" required>
+            <input type="password" name="pass" placeholder="Contraseña" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>
